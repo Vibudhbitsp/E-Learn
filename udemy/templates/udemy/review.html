@@ -1,0 +1,14 @@
+{% extends "udemy/base.html" %}
+{% block content %}
+    {% for review in review %}
+        <article class="media content-section">
+          
+          <div class="media-body">
+            
+            <h2>{{review.learner}}</h2>
+            <p>{{review.review}}</p>
+            
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

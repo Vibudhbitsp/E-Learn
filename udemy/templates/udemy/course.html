@@ -1,0 +1,34 @@
+{% extends "udemy/base.html" %}
+{% block content %}
+    {% for course in course %}
+        <article class="media content-section">
+          <img class = "rounded-circle article-img" src="{{ course.author.profile.image}}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ course.creator}}</a>
+              <small class="text-muted">{{ course.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" >{{ course.course_name}}</a></h2>
+            <p class="article-content">{{ course.course_content}}</p>
+            <b><a class="article-title" href="{% url 'module-create' course.id %}">Add a module</a><br></b>
+            <b><i><a class="article-title" href="{% url 'review' course.id %}">Add a review</a></i></b><br>
+            <b><i><a class="article-title" href="{% url 'see-review' course.id %}">See Course reviews</a></i></b>
+          </div>
+          {% if user.is_authenticated %}
+              
+            <div class="form-group">
+                <a href="{% url 'enroll' course.id %}"><button class="btn btn-outline-success" type="submit">Enroll for the Course !</button></a>
+            </div>
+            
+            <div class="form-group">
+                <a href="{% url 'study' course.id %}"><button class="btn btn-outline-success" type="submit">Visit the Course !</button></a>
+            </div>
+                     
+          {% else %}
+            <div class="form-group">
+                <a href="{% url 'login'%}"><button class="btn btn-outline-info" type="submit">Login to Enroll !</button></a>
+            </div>
+          {% endif %}
+        </article>
+    {% endfor %}
+{% endblock content %}

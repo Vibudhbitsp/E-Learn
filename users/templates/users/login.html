@@ -1,0 +1,25 @@
+
+{% extends "udemy/base.html" %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <a href="{% provider_login_url 'google' %}" class="btn btn btn-danger btn-lg btn-block" role="button" aria-pressed="true">Sign in with Google</a>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'creator' %}">Sign Up as educator </a>
+                Need An Account? <a class="ml-2" href="{% url 'learner' %}">Sign Up as learner </a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

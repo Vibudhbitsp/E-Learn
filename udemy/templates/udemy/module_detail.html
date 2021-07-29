@@ -1,0 +1,14 @@
+{% extends "udemy/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        
+        <div class="media-body">
+            
+            <h2 class="article-title" >{{ module.Title}}</h2>
+            <p class="article-content">{{ module.content }}</p>
+            <b>For details visit the link below</b><br>
+            <i class="article-content" >{{module.link}}</a>
+        </div>
+        
+    </article>
+{% endblock content %}

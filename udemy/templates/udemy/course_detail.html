@@ -1,0 +1,16 @@
+{% extends "udemy/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        <img class = "rounded-circle article-img" src="{{ course.author.profile.image}}">
+        <div class="media-body">
+            <div class="article-metadata">
+            <a class="mr-2" href="{% url 'profile' %}">{{ object.creator}}</a>
+            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2 class="article-title" >{{ object.course_name}}</h2>
+            <a class="article-content" href="{% url 'module-list' object.id %}">{{ object.course_content}}</a>
+            
+           
+        </div>
+    </article>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "udemy/base.html" %}
+{% block content %}
+      {% for module in module %}
+        <article class="media content-section">
+          
+          <div class="media-body">
+            
+            <h2><a class="article-title" href="{% url 'module-detail' module.Course.id module.id%}">{{ module.Title }}</a></h2>
+            
+            
+            
+          </div>
+        </article>
+      {% endfor %}
+{% endblock content %}
